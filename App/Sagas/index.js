@@ -7,11 +7,13 @@ import DebugConfig from '../Config/DebugConfig'
 
 import { StartupTypes } from '../Redux/StartupRedux'
 import { GithubTypes } from '../Redux/GithubRedux'
+import { StoreTypes } from '../Redux/StoreRedux'
 
 /* ------------- Sagas ------------- */
 
 import { startup } from './StartupSagas'
 import { getUserAvatar } from './GithubSagas'
+import { getAllStores, searchStores, getStoreDetail, getStoreProducts, getProductDetails } from './StoreSagas'
 
 /* ------------- API ------------- */
 
@@ -27,6 +29,12 @@ export default function * root () {
     takeLatest(StartupTypes.STARTUP, startup),
 
     // some sagas receive extra parameters in addition to an action
-    takeLatest(GithubTypes.USER_REQUEST, getUserAvatar, api)
+    takeLatest(GithubTypes.USER_REQUEST, getUserAvatar, api),
+
+    takeLatest(StoreTypes.GET_ALL_STORES_REQUEST, getAllStores, api),
+    takeLatest(StoreTypes.SEARCH_STORE_REQUEST, searchStores, api),
+    takeLatest(StoreTypes.GET_STORE_DETAILS_REQUEST, getStoreDetail, api),
+    takeLatest(StoreTypes.GET_STORE_DETAILS_REQUEST, getStoreProducts, api),
+    takeLatest(StoreTypes.GET_PRODUCT_DETAILS_REQUEST, getProductDetails, api)
   ])
 }

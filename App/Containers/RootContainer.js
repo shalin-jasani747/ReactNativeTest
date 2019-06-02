@@ -4,6 +4,8 @@ import ReduxNavigation from '../Navigation/ReduxNavigation'
 import { connect } from 'react-redux'
 import StartupActions from '../Redux/StartupRedux'
 import ReduxPersist from '../Config/ReduxPersist'
+import Spinner from '../Components/Spinner'
+import { Root } from "native-base";
 
 // Styles
 import styles from './Styles/RootContainerStyles'
@@ -17,12 +19,22 @@ class RootContainer extends Component {
   }
 
   render () {
+    let { storeData } = this.props
     return (
-      <View style={styles.applicationView}>
-        <StatusBar barStyle='light-content' />
-        <ReduxNavigation />
-      </View>
+      <Root>
+        <View style={styles.applicationView}>
+          <StatusBar barStyle='light-content' />
+          <ReduxNavigation />
+          <Spinner show={storeData.fetching} />
+        </View>
+      </Root>
     )
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    storeData: state.store
   }
 }
 
@@ -31,4 +43,4 @@ const mapDispatchToProps = (dispatch) => ({
   startup: () => dispatch(StartupActions.startup())
 })
 
-export default connect(null, mapDispatchToProps)(RootContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(RootContainer)
