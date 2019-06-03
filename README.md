@@ -13,7 +13,7 @@
 
 **Step 4:** Install the Application with `yarn` or `npm i`
 
-**Step 4:** If you are using Xcode Version 10.0 and above then please make sure in Xcode -> file menu -> project setting -> Per user project setting -> build system, you have selected the `Legacy build system`
+**Step 5:** If you are using Xcode Version 10.0 and above then please make sure in Xcode -> file menu -> project setting -> Per user project setting -> build system, you have selected the `Legacy build system`
 
 
 ## :arrow_forward: How to Run App
