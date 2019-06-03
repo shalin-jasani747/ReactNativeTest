@@ -9,7 +9,11 @@
 
 **Step 2:** cd to the cloned repo:
 
-**Step 3:** Install the Application with `yarn` or `npm i`
+**Step 3:** renamed `.env.example` file to `.env`
+
+**Step 4:** Install the Application with `yarn` or `npm i`
+
+**Step 4:** If you are using Xcode Version 10.0 and above then please make sure in Xcode -> file menu -> project setting -> Per user project setting -> build system, you have selected the `Legacy build system`
 
 
 ## :arrow_forward: How to Run App
